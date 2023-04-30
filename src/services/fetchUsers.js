@@ -9,7 +9,9 @@ async function fetchUsers(page, limit) {
       limit: limit,
     },
   });
-  return response.data;
+  const totalCount = await axios.get(BASE_URL);
+  const users = response.data;
+  return { totalCount: totalCount.data.length, users };
 }
 
-export default fetchUsers;
+export { fetchUsers };

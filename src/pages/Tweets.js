@@ -1,24 +1,30 @@
 import { CardsList } from "../components/CardsList/CardsLIst";
 import { useEffect, useState } from "react";
-import fetchUsers from "../services/fetchUsers";
+import { fetchUsers } from "../services/fetchUsers";
 import { LoadMore } from "../components/LoadMore/LoadMore";
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(null);
+  const limit = 3;
 
   useEffect(() => {
+    let isCanceled = false;
     async function getUsers() {
-      try {
-        const response = await fetchUsers(page, 3);
-        // setUsers((prevUsers) => [...prevUsers, ...response]);
-        setUsers(response);
-      } catch (error) {
-        console.log(error);
+      const { users, totalCount } = await fetchUsers(page, limit);
+
+      if (!isCanceled) {
+        setTotalCount(totalCount);
+        setUsers((prevUsers) => [...prevUsers, ...users]);
       }
     }
 
     getUsers();
+
+    return () => {
+      isCanceled = true;
+    };
   }, [page]);
 
   if (!users) {
@@ -32,7 +38,7 @@ const Tweets = () => {
   return (
     <>
       {users.length > 0 && <CardsList users={users} />}
-      <LoadMore handleClick={incrementPage} />
+      {page < totalCount / limit && <LoadMore handleClick={incrementPage} />}
     </>
   );
 };
