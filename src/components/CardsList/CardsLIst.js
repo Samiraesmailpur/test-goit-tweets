@@ -1,6 +1,6 @@
 import { Card } from "../Card/Card";
 import { List, Item, NavLink } from "./CardList.styled";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 
 export const CardsList = ({ users }) => {
