@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonContainer = styled.div`
-  margin: 20px 0 0;
+  margin: 40px 0px 0px;
   display: flex;
   justify-content: center;
 `;

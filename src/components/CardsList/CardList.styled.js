@@ -5,7 +5,7 @@ export const List = styled.ul`
   margin: 0 auto;
   @media screen and (min-width: 768px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 15px;
     flex-wrap: wrap;
   }
@@ -40,7 +40,7 @@ export const NavLink = styled(Link)`
   height: 30px;
   background-color: #ebd8ff;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: rgb(127 32 224);
   font-family: "Montserrat";
 `;

@@ -10,21 +10,14 @@ const Tweets = () => {
   const limit = 3;
 
   useEffect(() => {
-    // let isCanceled = false;
     async function getUsers() {
       const { users, totalCount } = await fetchUsers(page, limit);
 
-      // if (!isCanceled) {
       setTotalCount(totalCount);
       setUsers((prevUsers) => [...prevUsers, ...users]);
-      // }
     }
 
     getUsers();
-
-    // return () => {
-    //   isCanceled = true;
-    // };
   }, [page]);
 
   if (!users) {
