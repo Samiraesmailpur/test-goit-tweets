@@ -8,11 +8,11 @@ export const CardsList = ({ users }) => {
   const backLinkHref = location.state?.from ?? "/";
   return (
     <>
-      <NavLink to={backLinkHref}>
-        <BiArrowBack style={{ paddingLeft: "5px", marginRight: "5px" }} />
-        Go back
-      </NavLink>
       <div>
+        <NavLink to={backLinkHref}>
+          <BiArrowBack style={{ paddingLeft: "5px", marginRight: "5px" }} />
+          Go back
+        </NavLink>
         <List>
           {users.map((user) => (
             <Item key={user.id}>

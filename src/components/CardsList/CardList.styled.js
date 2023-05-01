@@ -5,7 +5,7 @@ export const List = styled.ul`
   margin: 0 auto;
   @media screen and (min-width: 768px) {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 15px;
     flex-wrap: wrap;
   }

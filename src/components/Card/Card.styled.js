@@ -20,6 +20,12 @@ export const Button = styled.button`
   color: #373737;
   font-family: "Montserrat";
   cursor: pointer;
+
+  ${(props) =>
+    props.following &&
+    `background: #5cd3a8;
+    color: #373737;
+  `}
 `;
 
 export const Text = styled.div`
@@ -33,12 +39,24 @@ export const Text = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   p:nth-of-type(1) {
     margin-bottom: 16px;
     margin-top: 26px;
   }
   p:nth-of-type(2) {
     margin-bottom: 26px;
+  }
+  ::before {
+    content: "";
+    position: absolute;
+    background: #ebd8ff;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+      inset 0px -1.71846px 3.43693px #ae7be3,
+      inset 0px 3.43693px 2.5777px #fbf8ff;
+    width: 100%;
+    height: 8px;
+    transform: translate(0px, -50px);
   }
 `;
 
@@ -52,17 +70,6 @@ export const Background = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  ::after {
-    content: "";
-    position: absolute;
-    background: #ebd8ff;
-    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-      inset 0px -1.71846px 3.43693px #ae7be3,
-      inset 0px 3.43693px 2.5777px #fbf8ff;
-    width: 100%;
-    height: 8px;
-    transform: translate(0px, -50px);
-  }
 `;
 
 export const BorderImg = styled.div`
@@ -79,6 +86,8 @@ export const BorderImg = styled.div`
     inset 0px -2.19582px 4.39163px #ae7be3,
     inset 0px 4.39163px 3.29372px #fbf8ff;
   border-radius: 50px;
+  z-index: 1;
+  position: relative;
 
   img {
     border-radius: 50px;

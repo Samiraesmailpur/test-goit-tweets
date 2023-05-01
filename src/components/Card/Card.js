@@ -44,7 +44,7 @@ export const Card = ({ user }) => {
           <p>Followers {followerCount.toLocaleString()}</p>
         </Text>
         <WrapperButton>
-          <Button onClick={handleFollow}>
+          <Button following={isFollowing} onClick={handleFollow}>
             {isFollowing ? "Following" : "Follow"}
           </Button>
         </WrapperButton>
